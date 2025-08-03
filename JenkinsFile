@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        allure 'allure' 
+        allure 'allure'
     }
 
     stages {
@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Run Tests') {
             steps {
                 bat 'mvn test'
             }
@@ -20,9 +20,17 @@ pipeline {
 
         stage('Publish Allure Report') {
             steps {
-                allure includeProperties: false,
-                       jdk: '',
-                       results: [[path: 'allure-results']] 
+                script {
+                    
+                    if (fileExists('allure-results')) {
+                        echo "Allure results found. Publishing report..."
+                        allure includeProperties: false,
+                               jdk: '',
+                               results: [[path: 'allure-results']]
+                    } else {
+                        echo "No allure-results folder found. Skipping report generation."
+                    }
+                }
             }
         }
     }
