@@ -9,7 +9,7 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 
 import java.io.ByteArrayInputStream;
-
+//updating  code to captyre failed screenshot
 public class ScreenShotUtility  {
    private final WebDriver driver;
     public ScreenShotUtility(WebDriver driver) {
