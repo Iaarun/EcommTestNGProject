@@ -45,7 +45,7 @@ public class EcommTests extends BaseClass {
         //verify title of the mobile page
     String actualMobilePageTitle=    mobilePage.getMobilePageTitle();
     logger.info("Mobile page title: {}", actualMobilePageTitle);
-    Assert.assertEquals(actualMobilePageTitle, "Mobile", "Mobile page title found is different than expected!");
+    Assert.assertEquals(actualMobilePageTitle, "Mobile123", "Mobile page title found is different than expected!");
     //select sort by dropdown as name
     mobilePage.selectSortBy("Name");
     //validate all the products are sorted by name
